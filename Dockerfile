@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:18.10
 ARG BASEPATH=/root
 ARG YANG_EXPLORER_PATH=${BASEPATH}/yang-explorer
 EXPOSE 8000
