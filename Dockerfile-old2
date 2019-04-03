@@ -1,16 +1,31 @@
-FROM ydkdev/ydk-py
+FROM ubuntu:18.10
 ARG BASEPATH=/root
 ARG YANG_EXPLORER_PATH=${BASEPATH}/yang-explorer
 EXPOSE 8000
 
 RUN apt-get update
 RUN apt-get install --no-install-recommends -y \
+		gdebi-core \
 		python3-dev \
 		python-dev \
 		python3-pip \
 		python-pip \
-		graphviz
+		libtool-bin \
+		libcurl4-openssl-dev \
+		libpcre3-dev \
+		libssh-dev \
+		libxml2-dev \
+		libxslt1-dev \
+		graphviz \
+		build-essential \
+		clang \
+		cmake
 RUN pip install --upgrade pip setuptools virtualenv
+
+
+# YDK deps
+RUN pip install ydk-models-cisco-ios-xe
+RUN pip install ydk-models-cisco-ios-xr
 
 # Yang Explorer itself
 RUN mkdir -p ${YANG_EXPLORER_PATH}
