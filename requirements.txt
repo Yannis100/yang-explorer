@@ -1,13 +1,13 @@
-Django<1.9a1
+Django~=1.8.19
 ecdsa
 paramiko
 pycrypto
 requests
-Jinja2<2.10
+Jinja2~=2.9.6
 python-slugify
-django-debug-toolbar<1.10
+django-debug-toolbar~=1.9.1
 markupsafe
 lxml
-graphviz==0.8.4
+graphviz~=0.8.4
 ncclient
 pyang
