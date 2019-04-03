@@ -4,7 +4,7 @@ ARG YANG_EXPLORER_PATH=${BASEPATH}/yang-explorer
 EXPOSE 8000
 
 RUN apt-get update
-RUN apt-get install -y \
+RUN apt-get install --no-install-recommends -y \
         python2.7 \
         python-pip \
         python-virtualenv \
@@ -13,12 +13,14 @@ RUN apt-get install -y \
         git \
         libxml2-dev \
         libxslt1-dev \
-        zlib1g-dev
+        zlib1g-dev \
+#		build-essential \
+		cmake
 RUN pip install --upgrade pip setuptools virtualenv
 
 # YDK deps
 WORKDIR ${BASEPATH}
-RUN git clone https://github.com/CiscoDevNet/ydk-py.git -b yam
+RUN git clone https://github.com/CiscoDevNet/ydk-py.git
 WORKDIR ydk-py/core
 RUN python setup.py sdist
 RUN pip install dist/ydk*.gz
