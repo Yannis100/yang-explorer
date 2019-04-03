@@ -32,7 +32,7 @@ WORKDIR ../cisco-ios-xr
 RUN python setup.py sdist
 RUN pip install dist/ydk*.gz
 
-# Tang Explorer itself
+# Yang Explorer itself
 RUN mkdir -p ${YANG_EXPLORER_PATH}
 WORKDIR ${YANG_EXPLORER_PATH}
 COPY . .
