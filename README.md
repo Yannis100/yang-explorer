@@ -1,3 +1,7 @@
+``docker run -it -p 8000:8000 yannis100/yang-explorer``
+
+
+
 Copyright 2015, Cisco Systems, Inc
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +18,7 @@ limitations under the License.
 
 ###1. Description
    An open-source Yang Browser and RPC Builder Application to experiment with Yang Data Models
-   
+
    **Features**
    - Upload / Compile yang models from User Interface Or Command Line
    - Build NetConf RPC
@@ -24,9 +28,9 @@ limitations under the License.
    - Save created RPCs to collections for later use
    - Build dependency graph for models
    - Browse data model tree and inspect yang properties
-   
+
    Restconf support is **experimental**
- 
+
    This application is under Beta mode, contributions / suggestions are welcome !!
 
 #####Screenshots:
@@ -204,7 +208,7 @@ limitations under the License.
    python manage.py bulkupload --user guest --git https://github.com/YangModels/yang.git --dir vendor/cisco/xr/531
 ```
    All models must be compiled successfully, in case of any error none of the models will be uploaded to yang-explorer.
-   
+
 #####5.2.3 Generating the model dependency graph:
    - Click **Manage Models** tab
    - Click **Workspace** tab
@@ -215,7 +219,7 @@ limitations under the License.
 #####5.2.4 Creating RPCs:
    You can explore yang models in explorer area (left pane) using tree navigation:
    ![alt tag](https://github.com/CiscoDevNet/yang-explorer/blob/master/docs/images/explorer.png)
-   
+
    - Value and Operation columns in explorer area are editable.
    - Explore model in explorer area by navigating model tree
    - Click value cell next to data node (leaf, container etc)
@@ -237,7 +241,7 @@ limitations under the License.
    - Create RPC using *5.2.4*
    - Populate Device info in Device Settings Tab
    - Click **Run** button under **Build** tab
-   
+
    Yang Explorer uses ncclient library to execute RPCs, connection timeout can be configured via
    environment varible default timout value is 45 seconds. 
 ```
@@ -247,14 +251,14 @@ limitations under the License.
 
 ##### 5.2.6 Generating Python example:
    - Create a netconf / xml RPC
-    - Create RPC using *5.2.4*
-    - (OR) Provide custom netconf XML (Click custom RPC Checkbox)
+        - Create RPC using *5.2.4*
+        - (OR) Provide custom netconf XML (Click custom RPC Checkbox)
 
    - Click **Script** button under **Build** tab
    - Click **Copy** button to copy generated code into system clipboard
    - Save content as a python script (say example.py)
    - Run python script from command line using given instruction in script header comments.
- 
+
 ##### 5.2.7 Saving RPCs to Collection:
    - Create RPC using *5.2.4*
    - Click **Save** button under **Build** tab
@@ -269,7 +273,7 @@ limitations under the License.
 
    Creating user account is optional as you can use default guest/guest login, however creating user account can be userful
    if you have a shared yang-explorer installation.
-   
+
    - Click **Admin** button in YangExplorer
    - Login as admin (user: admin, password: admin)
    - On admin page, click **Users** link
@@ -337,7 +341,7 @@ Uninstall:
 #####7.1.3 After install if you are not able to login using guest/guest try one of the following
    - mv server/data/db.sqlite3 server/data/db.sqlite3_backup
    - bash setup.sh
-   In end of setup.sh script log you should see something like this -
+      In end of setup.sh script log you should see something like this -
 ```bash
       ...
       Creating default users ..

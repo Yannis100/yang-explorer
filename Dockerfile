@@ -9,6 +9,7 @@ RUN apt-get install --no-install-recommends -y \
 		python-dev \
 		python3-pip \
 		python-pip \
+		git \
 		graphviz
 RUN pip install --upgrade pip setuptools virtualenv
 
@@ -28,5 +29,7 @@ RUN mkdir -p data/collections
 RUN mkdir -p data/annotation
 RUN python manage.py migrate
 RUN python manage.py setupdb
+RUN python manage.py bulkupload --user guest --git https://github.com/YangModels/yang.git --dir vendor/cisco/xe/1693
+RUN python manage.py bulkupload --user guest --git https://github.com/YangModels/yang.git --dir standard/ietf/RFC
 
 CMD python manage.py runserver 0.0.0.0:8000

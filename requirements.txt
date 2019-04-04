@@ -11,3 +11,5 @@ lxml
 graphviz~=0.8.4
 ncclient
 pyang
+ydk-models-cisco-ios-xr
+ydk-models-cisco-ios-xe

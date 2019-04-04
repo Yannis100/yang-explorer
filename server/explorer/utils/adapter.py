@@ -27,7 +27,7 @@ from explorer.utils.restconf import gen_restconf
 from explorer.utils.runner import NCClient, RestClient
 from explorer.utils.ncparse import NetconfParser
 
-from ydk.app_maker import YdkAppMaker
+#from ydk.app_maker import YdkAppMaker
 
 class Adapter(object):
     """ Class adapter for NCClient """
@@ -183,8 +183,8 @@ class Adapter(object):
 
     @staticmethod
     def gen_script(username, payload, target='ncclient'):
-        if target == 'ydk':
-            return Adapter.gen_ydk_script(username, payload)
+        #if target == 'ydk':
+            #return Adapter.gen_ydk_script(username, payload)
 
         if target == 'ncclient':
             return Adapter.gen_ncclient_script(username, payload)
@@ -192,12 +192,11 @@ class Adapter(object):
         logging.debug('gen_script: Invalid target %s\n' % str(target))
         return 'Invalid target %s for script gen' % str(target)
 
-
+    """
     @staticmethod
     def gen_ydk_script(username, payload):
-        """
-        Generate YDK python script that uses Netconf provider and Netconf/CRUD services 
-        """
+
+        # Generate YDK python script that uses Netconf provider and Netconf/CRUD services 
 
         logging.debug('gen_ydk_script: payload : \n' + payload)
 
@@ -284,6 +283,7 @@ class Adapter(object):
         script = ET.Element('script')
         script.text = ET.CDATA(rendered)
         return script
+    """
 
     @staticmethod
     def gen_ncclient_script(username, payload):
