@@ -78,13 +78,11 @@ if [[ $NOVENV != 1 ]]; then
 	echo "Using Python Program: ${python_prog}"
         virtualenv --python=${python_prog} v
         source v/bin/activate
-	pip install --upgrade pip
-	pip install --upgrade setuptools
     fi
 fi
 
 echo "Installing dependencies .."
-pip install --upgrade pip
+pip install pip~=9.0.3
 pip install -r requirements.txt
 #cd ../; \
 #git clone https://github.com/CiscoDevNet/ydk-py.git -b yam; \
