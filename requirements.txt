@@ -13,3 +13,4 @@ ncclient~=0.5.4
 pyang~=1.7.8
 pybind11~=2.2.4
 ydk-models-cisco-ios-xe
+ydk-models-openconfig
