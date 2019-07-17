@@ -82,6 +82,11 @@ if [[ $NOVENV != 1 ]]; then
 fi
 
 echo "Installing dependencies .."
+wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.3/xenial/libydk-0.8.3-1.amd64.deb
+gdebi -n libydk-0.8.3-1.amd64.deb
+apt-get update -y > /dev/null
+apt-get install gdebi-core python-dev python-pip python3-dev python3-pip libtool-bin wget sudo unzip git -y
+apt-get install libpcre3-dev libpcre++-dev libssh-dev libxml2-dev libxslt1-dev -y
 pip install pip~=9.0.3
 pip install -r requirements.txt
 #cd ../; \
