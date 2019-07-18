@@ -1,0 +1,23 @@
+FROM python3.7-alpine
+
+LABEL maintainer="yannis.ansermoz@nagra.com"
+
+#RUN apk add --no-cache bash git python && \
+#    python -m ensurepip && \
+#    rm -r /usr/lib/python*/ensurepip && \
+#    git clone https://github.com/Yannis100/yang-explorer.git
+
+COPY . /yang-explorer
+
+WORKDIR /yang-explorer
+
+RUN apk add --no-cache gcc py-crypto python-dev libffi-dev musl-dev openssl-dev libxml2-dev libxslt-dev && \
+    bash setup.sh -y && \
+    sed -i -e 's/HOST=\x27localhost\x27/HOST=$HOSTNAME/g' start.sh && \
+    apk del musl-dev gcc
+
+
+RUN python manage.py bulkupload --user guest --git https://github.com/YangModels/yang.git --dir vendor/cisco/xe/1693
+#RUN python manage.py bulkupload --user guest --git https://github.com/YangModels/yang.git --dir standard/ietf/RFC
+
+CMD ["bash", "start.sh"]
