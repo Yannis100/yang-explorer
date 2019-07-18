@@ -1,6 +1,7 @@
 FROM python3.7-alpine
 
 LABEL maintainer="yannis.ansermoz@nagra.com"
+# Based on https://netdevops.me/2017/yang-explorer-in-a-docker-container-based-on-alpine/
 
 #RUN apk add --no-cache bash git python && \
 #    python -m ensurepip && \
@@ -11,7 +12,7 @@ COPY . /yang-explorer
 
 WORKDIR /yang-explorer
 
-RUN apk add --no-cache gcc py-crypto python-dev libffi-dev musl-dev openssl-dev libxml2-dev libxslt-dev && \
+RUN apk add --no-cache bash gcc py-crypto python-dev libffi-dev musl-dev openssl-dev libxml2-dev libxslt-dev && \
     bash setup.sh -y && \
     sed -i -e 's/HOST=\x27localhost\x27/HOST=$HOSTNAME/g' start.sh && \
     apk del musl-dev gcc
